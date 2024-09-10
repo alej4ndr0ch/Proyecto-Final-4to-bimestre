@@ -9,9 +9,8 @@ export const BuscarCharacter = ({ handleGetStarWars }) => {
     };
 
     return (
-        <div className="d-flex flex-column justify-content-center align-items-center mt-3 p-3 mb-2 bg-danger text-white">
+        <div className="d-flex flex-column justify-content-center align-items-center mt-3 p-3 mb-2 bg-black text-white border border-warning-subtle">
             <form className="d-flex flex-column" onSubmit={handleSubmit}>
-                {/* Campo de búsqueda para personajes o planetas */}
                 <input
                     type="text"
                     className="form-control mb-2"
@@ -19,9 +18,7 @@ export const BuscarCharacter = ({ handleGetStarWars }) => {
                     placeholder="Ingresa el nombre del personaje o planeta"
                     value={searchTerm}
                 />
-                
-                {/* Botón de búsqueda */}
-                <input type="submit" value="Buscar" className="btn btn-outline-success" />
+                <input type="submit" value="Buscar" className="btn btn-warning" />
             </form>
         </div>
     )

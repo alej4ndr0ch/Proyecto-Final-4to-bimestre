@@ -9,13 +9,11 @@ export const useStarWars = () => {
         e.preventDefault();
 
         try {
-            // Realiza las búsquedas simultáneamente
             const [peopleData, planetData] = await Promise.all([
                 reqStarWarsPeople(searchTerm),
                 reqStarWarsPlanets(searchTerm)
             ]);
 
-            // Actualiza el estado con los resultados encontrados
             if (peopleData.results.length > 0) {
                 setCharacter(peopleData.results[0]);
             } else {
@@ -33,11 +31,11 @@ export const useStarWars = () => {
             setCharacter(null);
             setPlanet(null);
         }
-    };
+    }
 
     return {
         handleGetStarWars,
         character,
         planet,
-    };
-};
+    }
+}

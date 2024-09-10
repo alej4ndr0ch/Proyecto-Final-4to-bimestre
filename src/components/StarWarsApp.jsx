@@ -7,8 +7,14 @@ export const StarWarsApp = () => {
 
     return (
         <>
+            <div style={{
+            backgroundImage: 'url(https://i.ibb.co/RTKMNgj/star-wars-logo.webp)',
+            minHeight: '100vh',
+            color: 'white',
+        }}>
             <BuscarCharacter handleGetStarWars={handleGetStarWars} />
             <ContenedorCharacter character={character} planet={planet} />
+            </div>
         </>
-    );
-};
+    )
+}
