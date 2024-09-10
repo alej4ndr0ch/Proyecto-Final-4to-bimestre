@@ -1,15 +1,14 @@
-import { BuscarCharacter } from "./BuscarCharacter"
-import { ContenedorPokemon } from "./ContenedorPokemones"
-import { useStarWars } from "../hooks/useStarWars"
- 
+import { BuscarCharacter } from "./BuscarCharacter";
+import { ContenedorCharacter } from "./ContenedorCharacter";
+import { useStarWars } from "../hooks/useStarWars";
+
 export const StarWarsApp = () => {
- 
-    const { handleGetStarWars, character } = useStarWars()
- 
+    const { handleGetStarWars, character, planet } = useStarWars();
+
     return (
         <>
             <BuscarCharacter handleGetStarWars={handleGetStarWars} />
-            <ContenedorPokemon pokemon={pokemon} />
+            <ContenedorCharacter character={character} planet={planet} />
         </>
-    )
-}
+    );
+};

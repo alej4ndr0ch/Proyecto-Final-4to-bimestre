@@ -1,19 +1,27 @@
-import { useState } from "react"
- 
+import { useState } from "react";
+
 export const BuscarCharacter = ({ handleGetStarWars }) => {
- 
-    const [character, setCharacter] = useState('')
- 
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        handleGetStarWars(e, searchTerm);
+    };
+
     return (
-        <div className="d-flex flex-row justify-content-center align-items-center mt-3" class="p-3 mb-2 bg-danger text-white">
-            <form className="d-flex" onSubmit={(e) => { handleGetStarWars(e, character) }}>
+        <div className="d-flex flex-column justify-content-center align-items-center mt-3 p-3 mb-2 bg-danger text-white">
+            <form className="d-flex flex-column" onSubmit={handleSubmit}>
+                {/* Campo de búsqueda para personajes o planetas */}
                 <input
                     type="text"
-                    className="form-control me-2"
-                    onChange={(e) => { setCharacter(e.target.value) }}
-                    placeholder="Ingresa el nombre del personaje"
+                    className="form-control mb-2"
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    placeholder="Ingresa el nombre del personaje o planeta"
+                    value={searchTerm}
                 />
-                <input type="submit" value='Buscar' className="btn btn-outline-success" />
+                
+                {/* Botón de búsqueda */}
+                <input type="submit" value="Buscar" className="btn btn-outline-success" />
             </form>
         </div>
     )

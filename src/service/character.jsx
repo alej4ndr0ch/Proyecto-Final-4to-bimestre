@@ -1,10 +1,12 @@
-export const reqStarWars = async (character) => {
-    try {
-        const resp = await fetch(`https://swapi.dev/api/people/${character}`)
-        const data = await resp.json()
-        return data
-    } catch (err) {
-        console.error(err)
-        throw err
-    }
+export const reqStarWarsPeople = async (searchTerm) => {
+    const resp = await fetch(`https://swapi.dev/api/people/?search=${searchTerm}`);
+    const data = await resp.json();
+    return data;
+}
+
+// Búsqueda de planetas
+export const reqStarWarsPlanets = async (searchTerm) => {
+    const resp = await fetch(`https://swapi.dev/api/planets/?search=${searchTerm}`);
+    const data = await resp.json();
+    return data;
 }
